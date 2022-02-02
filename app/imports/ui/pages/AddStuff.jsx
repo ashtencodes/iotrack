@@ -10,11 +10,11 @@ import { Stuffs } from '../../api/stuff/Stuff';
 // Create a schema to specify the structure of the data to appear in the form.
 const formSchema = new SimpleSchema({
   name: String,
-  quantity: Number,
-  condition: {
+  grade: Number,
+  gender: {
     type: String,
-    allowedValues: ['excellent', 'good', 'fair', 'poor'],
-    defaultValue: 'good',
+    allowedValues: ['none', 'male', 'female', 'other'],
+    defaultValue: 'none',
   },
 });
 
@@ -25,14 +25,14 @@ class AddStuff extends React.Component {
 
   // On submit, insert the data.
   submit(data, formRef) {
-    const { name, quantity, condition } = data;
+    const { name, grade, gender } = data;
     const owner = Meteor.user().username;
-    Stuffs.collection.insert({ name, quantity, condition, owner },
+    Stuffs.collection.insert({ name, grade, gender, owner },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
         } else {
-          swal('Success', 'Item added successfully', 'success');
+          swal('Success', 'Athlete added successfully', 'success');
           formRef.reset();
         }
       });
@@ -44,12 +44,12 @@ class AddStuff extends React.Component {
     return (
       <Grid container centered>
         <Grid.Column>
-          <Header as="h2" textAlign="center">Add Stuff</Header>
+          <Header as="h2" textAlign="center">Add Athlete</Header>
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)} >
             <Segment>
               <TextField name='name'/>
-              <NumField name='quantity' decimal={false}/>
-              <SelectField name='condition'/>
+              <NumField name='grade' decimal={false}/>
+              <SelectField name='gender'/>
               <SubmitField value='Submit'/>
               <ErrorsField/>
             </Segment>
