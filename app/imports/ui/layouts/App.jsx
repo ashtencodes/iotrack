@@ -9,8 +9,12 @@ import Footer from '../components/Footer';
 import Landing from '../pages/Landing';
 import ListAthlete from '../pages/ListAthlete';
 import ListAthleteAdmin from '../pages/ListAthleteAdmin';
+import ListEvent from '../pages/ListEvent';
+import ListEventAdmin from '../pages/ListEventAdmin';
 import AddAthlete from '../pages/AddAthlete';
+import AddEvent from '../pages/AddEvent';
 import EditAthlete from '../pages/EditAthlete';
+import EditEvent from '../pages/EditEvent';
 import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
@@ -28,10 +32,14 @@ class App extends React.Component {
             <Route path="/signin" component={Signin}/>
             <Route path="/signup" component={Signup}/>
             <Route path="/signout" component={Signout}/>
-            <ProtectedRoute path="/list" component={ListAthlete}/>
-            <ProtectedRoute path="/add" component={AddAthlete}/>
-            <ProtectedRoute path="/edit/:_id" component={EditAthlete}/>
-            <AdminProtectedRoute path="/admin" component={ListAthleteAdmin}/>
+            <ProtectedRoute path="/listAthlete" component={ListAthlete}/>
+            <ProtectedRoute path="/listEvent" component={ListEvent}/>
+            <ProtectedRoute path="/addAthlete" component={AddAthlete}/>
+            <ProtectedRoute path="/addEvent" component={AddEvent}/>
+            <ProtectedRoute path="/editAthlete/:_id" component={EditAthlete}/>
+            <ProtectedRoute path="/editEvent/:_id" component={EditEvent}/>
+            <AdminProtectedRoute path="/adminAthlete" component={ListAthleteAdmin}/>
+            <AdminProtectedRoute path="/adminEvent" component={ListEventAdmin}/>
             <Route component={NotFound}/>
           </Switch>
           <Footer/>

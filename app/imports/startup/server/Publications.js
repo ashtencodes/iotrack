@@ -1,6 +1,8 @@
 import { Meteor } from 'meteor/meteor';
 import { Roles } from 'meteor/alanning:roles';
 import { Athletes } from '../../api/stuff/Athlete';
+import { Events } from '../../api/stuff/Event';
+
 
 // User-level publication.
 // If logged in, then publish documents owned by this user. Otherwise publish nothing.
@@ -12,11 +14,26 @@ Meteor.publish(Athletes.userPublicationName, function () {
   return this.ready();
 });
 
+Meteor.publish(Events.userPublicationName, function () {
+  if (this.userId) {
+    const username = Meteor.users.findOne(this.userId).username;
+    return Events.collection.find({ owner: username });
+  }
+  return this.ready();
+});
+
 // Admin-level publication.
 // If logged in and with admin role, then publish all documents from all users. Otherwise publish nothing.
 Meteor.publish(Athletes.adminPublicationName, function () {
   if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
     return Athletes.collection.find();
+  }
+  return this.ready();
+});
+
+Meteor.publish(Events.adminPublicationName, function () {
+  if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
+    return Events.collection.find();
   }
   return this.ready();
 });

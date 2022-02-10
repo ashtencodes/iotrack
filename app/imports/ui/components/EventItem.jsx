@@ -4,15 +4,15 @@ import PropTypes from 'prop-types';
 import { withRouter, Link } from 'react-router-dom';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
-class AthleteItem extends React.Component {
+class EventItem extends React.Component {
   render() {
     return (
       <Table.Row>
-        <Table.Cell>{this.props.athlete.name}</Table.Cell>
-        <Table.Cell>{this.props.athlete.grade}</Table.Cell>
-        <Table.Cell>{this.props.athlete.gender}</Table.Cell>
+        <Table.Cell>{this.props.event.eventName}</Table.Cell>
+        <Table.Cell>{this.props.event.location}</Table.Cell>
+        <Table.Cell>{this.props.event.date}</Table.Cell>
         <Table.Cell>
-          <Link to={`/editAthlete/${this.props.athlete._id}`}>Edit</Link>
+          <Link to={`/editEvent/${this.props.event._id}`}>Edit</Link>
         </Table.Cell>
       </Table.Row>
     );
@@ -20,14 +20,14 @@ class AthleteItem extends React.Component {
 }
 
 // Require a document to be passed to this component.
-AthleteItem.propTypes = {
-  athlete: PropTypes.shape({
-    name: PropTypes.string,
-    grade: PropTypes.number,
-    gender: PropTypes.string,
+EventItem.propTypes = {
+  event: PropTypes.shape({
+    eventName: PropTypes.string,
+    location: PropTypes.string,
+    date: PropTypes.number,
     _id: PropTypes.string,
   }).isRequired,
 };
 
 // Wrap this component in withRouter since we use the <Link> React Router element.
-export default withRouter(AthleteItem);
+export default withRouter(EventItem);

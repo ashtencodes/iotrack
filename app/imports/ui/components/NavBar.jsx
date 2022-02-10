@@ -16,11 +16,14 @@ class NavBar extends React.Component {
           <Header inverted as='h1'>IoTrack</Header>
         </Menu.Item>
         {this.props.currentUser ? (
-          [<Menu.Item as={NavLink} activeClassName="active" exact to="/add" key='add'>Add Athlete</Menu.Item>,
-            <Menu.Item as={NavLink} activeClassName="active" exact to="/list" key='list'>List Athletes</Menu.Item>]
+          [<Menu.Item as={NavLink} activeClassName="active" exact to="/addAthlete" key='add'>Add Athlete</Menu.Item>,
+            <Menu.Item as={NavLink} activeClassName="active" exact to="/listAthlete" key='list'>List Athletes</Menu.Item>,
+              <Menu.Item as={NavLink} activeClassName="active" exact to="/addEvent" key='add'>Add Event</Menu.Item>,
+              <Menu.Item as={NavLink} activeClassName="active" exact to="/listEvent" key='list'>List Events</Menu.Item>]
         ) : ''}
         {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
-          <Menu.Item as={NavLink} activeClassName="active" exact to="/admin" key='admin'>Admin</Menu.Item>
+          [<Menu.Item as={NavLink} activeClassName="active" exact to="/adminAthlete" key='admin'>Admin Athlete</Menu.Item>,
+              <Menu.Item as={NavLink} activeClassName="active" exact to="/adminEvent" key='admin'>Admin Event</Menu.Item>]
         ) : ''}
         <Menu.Item position="right">
           {this.props.currentUser === '' ? (
