@@ -7,10 +7,10 @@ import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import Landing from '../pages/Landing';
-import ListStuff from '../pages/ListStuff';
-import ListStuffAdmin from '../pages/ListStuffAdmin';
-import AddStuff from '../pages/AddStuff';
-import EditStuff from '../pages/EditStuff';
+import ListAthlete from '../pages/ListStuff';
+import ListAthleteAdmin from '../pages/ListStuffAdmin';
+import AddAthlete from '../pages/AddStuff';
+import EditAthlete from '../pages/EditStuff';
 import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
@@ -28,10 +28,10 @@ class App extends React.Component {
             <Route path="/signin" component={Signin}/>
             <Route path="/signup" component={Signup}/>
             <Route path="/signout" component={Signout}/>
-            <ProtectedRoute path="/list" component={ListStuff}/>
-            <ProtectedRoute path="/add" component={AddStuff}/>
-            <ProtectedRoute path="/edit/:_id" component={EditStuff}/>
-            <AdminProtectedRoute path="/admin" component={ListStuffAdmin}/>
+            <ProtectedRoute path="/list" component={ListAthlete}/>
+            <ProtectedRoute path="/add" component={AddAthlete}/>
+            <ProtectedRoute path="/edit/:_id" component={EditAthlete}/>
+            <AdminProtectedRoute path="/admin" component={ListAthleteAdmin}/>
             <Route component={NotFound}/>
           </Switch>
           <Footer/>

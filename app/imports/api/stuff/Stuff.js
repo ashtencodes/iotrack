@@ -5,10 +5,10 @@ import { Tracker } from 'meteor/tracker';
 /**
  * The StuffsCollection. It encapsulates state and variable values for stuff.
  */
-class StuffsCollection {
+class AthleteCollection {
   constructor() {
     // The name of this collection.
-    this.name = 'StuffsCollection';
+    this.name = 'AthleteCollection';
     // Define the Mongo collection.
     this.collection = new Mongo.Collection(this.name);
     // Define the structure of each document in the collection.
@@ -34,4 +34,4 @@ class StuffsCollection {
  * The singleton instance of the StuffsCollection.
  * @type {StuffsCollection}
  */
-export const Stuffs = new StuffsCollection();
+export const Athletes = new AthleteCollection();

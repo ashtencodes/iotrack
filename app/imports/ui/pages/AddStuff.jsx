@@ -5,7 +5,7 @@ import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
-import { Stuffs } from '../../api/stuff/Stuff';
+import { Athletes } from '../../api/stuff/Stuff';
 
 // Create a schema to specify the structure of the data to appear in the form.
 const formSchema = new SimpleSchema({
@@ -21,13 +21,13 @@ const formSchema = new SimpleSchema({
 const bridge = new SimpleSchema2Bridge(formSchema);
 
 /** Renders the Page for adding a document. */
-class AddStuff extends React.Component {
+class AddAthlete extends React.Component {
 
   // On submit, insert the data.
   submit(data, formRef) {
     const { name, grade, gender } = data;
     const owner = Meteor.user().username;
-    Stuffs.collection.insert({ name, grade, gender, owner },
+    Athletes.collection.insert({ name, grade, gender, owner },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -60,4 +60,4 @@ class AddStuff extends React.Component {
   }
 }
 
-export default AddStuff;
+export default AddAthlete;
