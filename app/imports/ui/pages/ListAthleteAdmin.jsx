@@ -3,8 +3,8 @@ import { Meteor } from 'meteor/meteor';
 import { Container, Table, Header, Loader } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
-import { Athletes } from '../../api/stuff/Stuff';
-import AthleteItemAdmin from '../components/StuffItemAdmin';
+import { Athletes } from '../../api/stuff/Athlete';
+import AthleteItemAdmin from '../components/AthleteItemAdmin';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class ListAthleteAdmin extends React.Component {

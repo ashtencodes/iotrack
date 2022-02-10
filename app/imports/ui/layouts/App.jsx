@@ -7,10 +7,10 @@ import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import Landing from '../pages/Landing';
-import ListAthlete from '../pages/ListStuff';
-import ListAthleteAdmin from '../pages/ListStuffAdmin';
-import AddAthlete from '../pages/AddStuff';
-import EditAthlete from '../pages/EditStuff';
+import ListAthlete from '../pages/ListAthlete';
+import ListAthleteAdmin from '../pages/ListAthleteAdmin';
+import AddAthlete from '../pages/AddAthlete';
+import EditAthlete from '../pages/EditAthlete';
 import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';

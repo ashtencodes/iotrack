@@ -1,5 +1,5 @@
 import { Meteor } from 'meteor/meteor';
-import { Athletes } from '../../api/stuff/Stuff.js';
+import { Athletes } from '../../api/stuff/Athlete.js';
 
 /* eslint-disable no-console */
 
