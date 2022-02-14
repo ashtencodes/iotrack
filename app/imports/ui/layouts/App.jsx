@@ -34,12 +34,16 @@ class App extends React.Component {
             <Route path="/signout" component={Signout}/>
             <ProtectedRoute path="/listAthlete" component={ListAthlete}/>
             <ProtectedRoute path="/listEvent" component={ListEvent}/>
+            <ProtectedRoute path="/listPerformance" component={ListPerformance}/>
             <ProtectedRoute path="/addAthlete" component={AddAthlete}/>
             <ProtectedRoute path="/addEvent" component={AddEvent}/>
+            <ProtectedRoute path="/addPerformance" component={AddPerformance}/>
             <ProtectedRoute path="/editAthlete/:_id" component={EditAthlete}/>
             <ProtectedRoute path="/editEvent/:_id" component={EditEvent}/>
+            <ProtectedRoute path="/editPerformance/:_id" component={EditPerformance}/>
             <AdminProtectedRoute path="/adminAthlete" component={ListAthleteAdmin}/>
             <AdminProtectedRoute path="/adminEvent" component={ListEventAdmin}/>
+            <AdminProtectedRoute path="/adminPerformance" component={ListPerformanceAdmin}/>
             <Route component={NotFound}/>
           </Switch>
           <Footer/>
