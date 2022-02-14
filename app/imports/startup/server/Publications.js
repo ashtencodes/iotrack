@@ -4,7 +4,6 @@ import { Athletes } from '../../api/stuff/Athlete';
 import { Events } from '../../api/stuff/Event';
 import { Performances } from '../../api/stuff/Performance';
 
-
 // User-level publication.
 // If logged in, then publish documents owned by this user. Otherwise publish nothing.
 Meteor.publish(Athletes.userPublicationName, function () {
@@ -30,7 +29,6 @@ Meteor.publish(Performances.userPublicationName, function () {
   }
   return this.ready();
 });
-
 
 // Admin-level publication.
 // If logged in and with admin role, then publish all documents from all users. Otherwise publish nothing.

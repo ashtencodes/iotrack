@@ -13,7 +13,6 @@ const formSchema = new SimpleSchema({
   eventID: String,
   raceType: String,
   raceTime: Number,
-  splitsArray: Array,
   throwDistance: Number,
   jumpDistance: Number,
   jumpHeight: Number,
@@ -27,9 +26,9 @@ class AddPerformance extends React.Component {
 
   // On submit, insert the data.
   submit(data, formRef) {
-    const { athleteID, eventID, raceType, raceTime, splitsArray, throwDistance, jumpDistance, jumpHeight, ranking } = data;
+    const { athleteID, eventID, raceType, raceTime, throwDistance, jumpDistance, jumpHeight, ranking } = data;
     const owner = Meteor.user().username;
-    Performances.collection.insert({ athleteID, eventID, raceType, raceTime, splitsArray, throwDistance, jumpDistance, jumpHeight, ranking },
+    Performances.collection.insert({ athleteID, eventID, raceType, raceTime, throwDistance, jumpDistance, jumpHeight, ranking, owner },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -53,9 +52,8 @@ class AddPerformance extends React.Component {
               <TextField name='eventID'/>
               <TextField name='raceType'/>
               <NumField name='raceTime' decimal={false}/>
-              <NumField name='splitsArray' decimal={false}/>
               <NumField name='throwDistance' decimal={true}/>
-              <NumField name='jumpDistnace' decimal={true}/>
+              <NumField name='jumpDistance' decimal={true}/>
               <NumField name='jumpHeight' decimal={true}/>
               <NumField name='ranking' decimal={false}/>
               <SubmitField value='Submit'/>

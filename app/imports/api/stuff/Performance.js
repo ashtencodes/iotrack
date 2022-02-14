@@ -5,7 +5,7 @@ import { Tracker } from 'meteor/tracker';
 /**
  * The StuffsCollection. It encapsulates state and variable values for stuff.
  */
-class EventCollection {
+class PerformanceCollection {
   constructor() {
     // The name of this collection.
     this.name = 'PerformanceCollection';
@@ -17,11 +17,11 @@ class EventCollection {
       eventID: String,
       raceType: String,
       raceTime: Number,
-      splitsArray: Array,
       throwDistance: Number,
       jumpDistance: Number,
       jumpHeight: Number,
       ranking: Number,
+      owner: String,
     }, { tracker: Tracker });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.
     this.collection.attachSchema(this.schema);

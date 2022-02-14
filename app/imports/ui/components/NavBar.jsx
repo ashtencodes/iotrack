@@ -16,14 +16,17 @@ class NavBar extends React.Component {
           <Header inverted as='h1'>IoTrack</Header>
         </Menu.Item>
         {this.props.currentUser ? (
-          [<Menu.Item as={NavLink} activeClassName="active" exact to="/addAthlete" key='add'>Add Athlete</Menu.Item>,
-            <Menu.Item as={NavLink} activeClassName="active" exact to="/listAthlete" key='list'>List Athletes</Menu.Item>,
-              <Menu.Item as={NavLink} activeClassName="active" exact to="/addEvent" key='add'>Add Event</Menu.Item>,
-              <Menu.Item as={NavLink} activeClassName="active" exact to="/listEvent" key='list'>List Events</Menu.Item>]
+          [<Menu.Item as={NavLink} activeClassName="active" exact to="/addAthlete" key='addAthlete'>Add Athlete</Menu.Item>,
+            <Menu.Item as={NavLink} activeClassName="active" exact to="/listAthlete" key='listAthlete'>List Athletes</Menu.Item>,
+            <Menu.Item as={NavLink} activeClassName="active" exact to="/addEvent" key='addEvent'>Add Event</Menu.Item>,
+            <Menu.Item as={NavLink} activeClassName="active" exact to="/listEvent" key='listEvent'>List Events</Menu.Item>,
+            <Menu.Item as={NavLink} activeClassName="active" exact to="/addPerformance" key='addPerformance'>Add Performance</Menu.Item>,
+            <Menu.Item as={NavLink} activeClassName="active" exact to="/listPerformance" key='listPerformance'>List Performance</Menu.Item>]
         ) : ''}
         {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
-          [<Menu.Item as={NavLink} activeClassName="active" exact to="/adminAthlete" key='admin'>Admin Athlete</Menu.Item>,
-              <Menu.Item as={NavLink} activeClassName="active" exact to="/adminEvent" key='admin'>Admin Event</Menu.Item>]
+          [<Menu.Item as={NavLink} activeClassName="active" exact to="/adminAthlete" key='adminAthlete'>Admin Athlete</Menu.Item>,
+            <Menu.Item as={NavLink} activeClassName="active" exact to="/adminEvent" key='adminEvent'>Admin Event</Menu.Item>,
+            <Menu.Item as={NavLink} activeClassName="active" exact to="/adminPerformance" key='adminPerformance'>Admin Performance</Menu.Item>]
         ) : ''}
         <Menu.Item position="right">
           {this.props.currentUser === '' ? (

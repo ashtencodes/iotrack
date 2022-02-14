@@ -12,7 +12,6 @@ class PerformanceItem extends React.Component {
         <Table.Cell>{this.props.performance.eventID}</Table.Cell>
         <Table.Cell>{this.props.performance.raceType}</Table.Cell>
         <Table.Cell>{this.props.performance.raceTime}</Table.Cell>
-        <Table.Cell>{this.props.performance.splitsArray}</Table.Cell>
         <Table.Cell>{this.props.performance.throwDistance}</Table.Cell>
         <Table.Cell>{this.props.performance.jumpDistance}</Table.Cell>
         <Table.Cell>{this.props.performance.jumpHeight}</Table.Cell>
@@ -30,9 +29,8 @@ PerformanceItem.propTypes = {
   performance: PropTypes.shape({
     athleteID: PropTypes.string,
     eventID: PropTypes.string,
-    raceType: PropTypes.number,
+    raceType: PropTypes.string,
     raceTime: PropTypes.number,
-    splitsArray: PropTypes.array,
     throwDistance: PropTypes.number,
     jumpDistance: PropTypes.number,
     jumpHeight: PropTypes.number,
